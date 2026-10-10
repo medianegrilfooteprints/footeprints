@@ -1585,21 +1585,6 @@ a.crow:hover b, .crow b a:hover{text-decoration:underline}
 .lite-band .cta .btn{width:100%; justify-content:center; gap:8px}
 .lite-band .cta-note{margin:0; font-size:13.5px; color:var(--ink-soft); text-align:center}
 .band.dark.lite-band .cta-note{color:var(--on-dark-soft)}
-.places{display:grid; gap:12px}
-@media (min-width:620px){.places{grid-template-columns:1fr 1fr}}
-.place{background:#fff; border:1px solid var(--line); border-radius:var(--r-photo); padding:18px; display:flex; flex-direction:column; gap:8px}
-.pl-when{font-size:12px; font-weight:600; letter-spacing:.04em; color:var(--seafoam-ink)}
-.place h3{font-size:24px}
-.place p{margin:0; font-size:14.5px; color:var(--ink-soft); text-wrap:pretty}
-.place p b{color:var(--ink)}
-.pl-b{display:flex; flex-wrap:wrap; gap:8px; margin-top:4px}
-.pl-b .btn{flex:1 1 auto; justify-content:center; min-width:0}
-.book2{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:6px; padding-top:12px; border-top:1px solid var(--line)}
-.book2 > div{display:grid; gap:6px; align-content:end}
-.b2-k{font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); text-align:center}
-.book2 .btn{width:100%; justify-content:center; padding-inline:8px; font-size:14.5px}
-.cel-where{margin:0; font-size:14.5px; color:var(--on-dark-soft)}
-.cel-where b{color:#fff}
 .gk-row{align-items:stretch}
 .gk-row > .gk{flex:0 0 82%; scroll-snap-align:start}
 @media (min-width:620px){.gk-row > .gk{flex-basis:calc((100% - 10px) / 2)}}
@@ -1607,20 +1592,12 @@ a.crow:hover b, .crow b a:hover{text-decoration:underline}
 .spamenu-sheet .sm-book{position:sticky; bottom:12px; width:100%; justify-content:center; margin-top:18px; box-shadow:0 8px 24px rgba(10,44,50,.25)}
 .lite-band .block{grid-template-columns:minmax(0,1fr)}
 .lite-band .block > *{min-width:0}
-.places{grid-template-columns:minmax(0,1fr)}
-@media (min-width:620px){.places{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
-.place > *{min-width:0}
-.book2{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-.place .btn{white-space:normal; text-align:center}
 
 /* light boxes inside dark bands keep dark text */
 .band.dark .prices, .band.dark .spa-facts, .band.dark .not-inc{color:var(--ink)}
 .band.dark .prices .price b, .band.dark .spa-facts b, .band.dark .not-inc b{color:var(--ink)}
 .band.dark .prices .price span, .band.dark .spa-facts span, .band.dark .not-inc p{color:var(--ink-soft)}
 .band.dark .not-inc .act{color:var(--seafoam-ink)}
-.band.dark .lite-band .btn-line, .band.dark.lite-band .btn-line{color:#fff; border-color:rgba(255,255,255,.55); background:transparent}
-.book2{grid-template-columns:minmax(0,1fr); gap:12px}
-.b2-k{text-align:left}
 
 /* v3: one wide photo per section, photos in the dining cards */
 .band-pic{margin:0; border-radius:var(--r-photo); overflow:hidden; aspect-ratio:16/10; background:var(--sand)}
@@ -1629,6 +1606,48 @@ a.crow:hover b, .crow b a:hover{text-decoration:underline}
 .band-pic.tall{aspect-ratio:4/3}
 .lite-band .more-q{margin-top:6px}
 .lite #rooms .more-q{margin-top:18px}
+
+/* v4 (10 Oct): dining cards as plain blocks (same in every browser) */
+.places{display:grid; grid-template-columns:minmax(0,1fr); gap:12px}
+.place{display:block; background:#fff; color:var(--ink); border:1px solid var(--line); border-radius:var(--r-photo); padding:18px}
+.place > * + *{margin-top:10px}
+.place .pl-when{margin:0; font-size:12px; line-height:1.45; font-weight:600; letter-spacing:.04em; color:var(--seafoam-ink)}
+.place h3{margin:6px 0 0; font-size:24px; line-height:1.15; color:var(--ink)}
+.place .pl-x{margin:10px 0 0; font-size:14.5px; line-height:1.55; color:var(--ink-soft)}
+.place .pl-x b{color:var(--ink)}
+.pl-b{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px; margin-top:14px}
+.pl-b .btn{width:100%; min-width:0; white-space:normal; text-align:center; color:var(--ink)}
+.pl-b .btn-main{color:var(--seafoam-ink)}
+.pl-b .pl-wide{grid-column:1 / -1}
+.book2{display:grid; grid-template-columns:minmax(0,1fr); gap:8px; margin-top:16px; padding-top:14px; border-top:1px solid var(--line)}
+.book2 .b2-k{margin:4px 0 0; font-size:12px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft)}
+.book2 .btn{width:100%; white-space:normal; color:var(--ink)}
+.book2 .btn-main{color:var(--seafoam-ink)}
+.band.dark .place .btn-line, .opt .btn-line{color:var(--ink); border-color:rgba(22,52,58,.3); background:#fff}
+.opt{color:var(--ink)}
+/* white outline buttons only for the big buttons straight on a dark band */
+.band.dark.lite-band .cta .btn-line{color:#fff; border-color:rgba(255,255,255,.55); background:transparent}
+.cel-where{margin:0; font-size:14.5px; color:var(--ink-soft)}
+.cel-where b{color:var(--ink)}
+.band.dark .cel-where{color:var(--on-dark-soft)} .band.dark .cel-where b{color:#fff}
+.band.dark .open-now{background:#e3f4ef; color:var(--ink)}
+.band.dark .open-now.is-closed{background:var(--sand)}
+/* links inside answers stay dark on the light question cards */
+.more-q .qa .act, .more-q .qa .qa-links .act{color:var(--seafoam-ink); border-color:rgba(12,74,63,.35)}
+.qa-links button.act{background:none; border:0; border-bottom:1.5px solid rgba(12,74,63,.35); padding:0 0 2px; font:inherit; font-weight:600; cursor:pointer}
+/* hero line: "Restaurants & spa open to everyone" on its own line on phones */
+@media (max-width:619px){.strip-sub .ss2{display:block; margin-top:2px} .strip-sub i{display:none}}
+.nw{white-space:nowrap}
+.gk-act{display:inline-flex; align-items:center; gap:8px; margin-top:12px; background:none; border:0; padding:0 0 2px; font:inherit; font-weight:600; font-size:14px; color:var(--seafoam); border-bottom:1.5px solid rgba(125,211,188,.5); cursor:pointer}
+.lite-amen{margin-top:2px}
+.lite #good .rev-row{margin-top:2px}
+.lite #good .faq-h{margin-top:26px}
+.copy-note{margin-top:8px}
+.full-note{background:#fdf1e3; color:#7a4310}
+.swp{display:grid; gap:14px; min-width:0}
+.lite #rooms .cmp-cta{background:var(--sand); border-color:var(--line); color:var(--ink)}
+.lite #rooms .cmp-cta b{color:var(--ink)} .lite #rooms .cmp-cta span{color:var(--ink-soft)}
+.pl-b .btn{font-size:14.5px; padding-inline:8px}
 </style>
 <script>try{var fq=location.search;if(/[?&]notrack(=|&|$)/.test(fq))localStorage.setItem("umami.disabled","1");if(/[?&]track(=|&|$)/.test(fq))localStorage.removeItem("umami.disabled");}catch(e){}</script><script>function fpNames(t,p){try{if(p&&p.url){p.url=location.pathname+location.search;}}catch(e){}return p;}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="88f031e5-b5f9-4343-af8d-d07e18924fac" data-before-send="fpNames"></script>
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');try{if(localStorage.getItem('fp-consent')==='no'||localStorage.getItem('umami.disabled')){fbq('consent','revoke');}}catch(e){}fbq('init','27038872655767547');fbq('track','PageView');</script><noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=27038872655767547&ev=PageView&noscript=1"></noscript>
