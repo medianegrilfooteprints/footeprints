@@ -1660,6 +1660,8 @@ a.crow:hover b, .crow b a:hover{text-decoration:underline}
 .cmp-live{display:block; font-style:normal; font-weight:600; font-size:12.5px; color:#1e8f78; margin-top:2px}
 .cmp-live.is-full{color:#b5651d}
 #dates-go{gap:8px}
+/* 10 Oct: the dining cards share the .place class with the full site's photo rule (aspect-ratio 16/9), which cut the cards in Safari */
+.places .place{aspect-ratio:auto; height:auto; max-width:none; object-fit:fill}
 </style>
 <script>try{var fq=location.search;if(/[?&]notrack(=|&|$)/.test(fq))localStorage.setItem("umami.disabled","1");if(/[?&]track(=|&|$)/.test(fq))localStorage.removeItem("umami.disabled");}catch(e){}</script><script>function fpNames(t,p){try{if(p&&p.url){p.url=location.pathname+location.search;}}catch(e){}return p;}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="88f031e5-b5f9-4343-af8d-d07e18924fac" data-before-send="fpNames"></script>
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');try{if(localStorage.getItem('fp-consent')==='no'||localStorage.getItem('umami.disabled')){fbq('consent','revoke');}}catch(e){}fbq('init','27038872655767547');fbq('track','PageView');</script><noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=27038872655767547&ev=PageView&noscript=1"></noscript>
