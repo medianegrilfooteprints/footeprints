@@ -17,7 +17,7 @@ const DAY = /^\d{4}-\d{2}-\d{2}$/;
 
 // Short tracked links: visit.negrilfooteprints.com/<code> -> the page with UTM tags.
 // 302 on purpose, so a link can be changed later without browsers remembering the old target.
-// Extra query on the short link is passed on (e.g. /dm?utm_content=wedding).
+// Tag one message with a word after the code: /dm/wedding -> utm_content=wedding. Extra query is passed on too.
 const SHORT = {
   ig:    '?utm_source=instagram&utm_medium=bio&utm_campaign=hotel',
   igd:   '?utm_source=instagram&utm_medium=bio&utm_campaign=dining#dining',
@@ -39,12 +39,16 @@ const SHORT = {
 };
 
 function shortLink(url) {
-  const code = url.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+  const parts = url.pathname.replace(/^\/+|\/+$/g, '').split('/');
+  const code = (parts.shift() || '').toLowerCase();
   if (!code || !Object.prototype.hasOwnProperty.call(SHORT, code)) return null;
+  let tag = parts.join('-'); try { tag = decodeURIComponent(tag); } catch (e) {}
+  tag = tag.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9_-]/g, '');   // /dm/wedding -> utm_content=wedding
   let target = SHORT[code], hash = '';
   const h = target.indexOf('#');
   if (h >= 0) { hash = target.slice(h); target = target.slice(0, h); }
   const q = new URLSearchParams(target.slice(1));
+  if (tag && code !== 'team') q.set('utm_content', tag);
   url.searchParams.forEach((v, k) => q.set(k, v));
   const qs = q.toString().replace(/=(&|$)/g, '$1');
   return new Response(null, { status: 302, headers: { location: HOME + '/' + (qs ? '?' + qs : '') + hash, 'cache-control': 'no-store' } });
