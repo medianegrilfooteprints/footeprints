@@ -5,6 +5,7 @@
 // answers are cached for 5 minutes, and nothing about the guest is sent or stored.
 
 const ENGINE_DEFAULT = 'https://negrilfooteprints.com/search-results/';
+const HOME = 'https://visit.negrilfooteprints.com';
 const CODES = {
   'hotel suite king': 'HSK', 'hotel suite double': 'HSD',
   'ocean view queen': 'OVQ', 'ocean view king': 'OVK', 'ocean view double': 'OVD',
@@ -18,6 +19,10 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (url.pathname === '/api/availability') return availability(url, env, ctx);
+    // Old addresses -> the hotel's own address. Email images (/img/) stay served here.
+    if ((url.hostname.endsWith('.workers.dev') || url.hostname === 'footeprints.pages.dev') && !url.pathname.startsWith('/img/')) {
+      return Response.redirect(HOME + url.pathname + url.search + url.hash, 301);
+    }
     return env.ASSETS.fetch(request);
   },
 };
