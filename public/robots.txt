@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /go/
+
+Sitemap: https://visit.negrilfooteprints.com/sitemap.xml
