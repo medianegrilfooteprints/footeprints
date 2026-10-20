@@ -15,10 +15,46 @@ const CODES = {
 };
 const DAY = /^\d{4}-\d{2}-\d{2}$/;
 
+// Short tracked links: visit.negrilfooteprints.com/<code> -> the page with UTM tags.
+// 302 on purpose, so a link can be changed later without browsers remembering the old target.
+// Extra query on the short link is passed on (e.g. /dm?utm_content=wedding).
+const SHORT = {
+  ig:    '?utm_source=instagram&utm_medium=bio&utm_campaign=hotel',
+  igd:   '?utm_source=instagram&utm_medium=bio&utm_campaign=dining#dining',
+  dm:    '?utm_source=instagram&utm_medium=dm&utm_campaign=hotel',
+  mc:    '?utm_source=instagram&utm_medium=manychat&utm_campaign=hotel',
+  story: '?utm_source=instagram&utm_medium=story&utm_campaign=hotel',
+  tt:    '?utm_source=tiktok&utm_medium=bio&utm_campaign=hotel',
+  ttdm:  '?utm_source=tiktok&utm_medium=dm&utm_campaign=hotel',
+  yt:    '?utm_source=youtube&utm_medium=channel&utm_campaign=hotel',
+  ytv:   '?utm_source=youtube&utm_medium=video&utm_campaign=hotel',
+  fb:    '?utm_source=facebook&utm_medium=bio&utm_campaign=hotel',
+  g:     '?utm_source=google&utm_medium=gbp&utm_campaign=hotel',
+  gb:    '?utm_source=google&utm_medium=gbp&utm_campaign=blushys#dining',
+  gg:    '?utm_source=google&utm_medium=gbp&utm_campaign=gatsbys#dining',
+  wa:    '?utm_source=whatsapp&utm_medium=chat&utm_campaign=hotel',
+  mail:  '?utm_source=email&utm_medium=signature&utm_campaign=hotel',
+  qr:    '?utm_source=qr&utm_medium=print&utm_campaign=hotel',
+  team:  '?notrack',
+};
+
+function shortLink(url) {
+  const code = url.pathname.replace(/^\/+|\/+$/g, '').toLowerCase();
+  if (!code || !Object.prototype.hasOwnProperty.call(SHORT, code)) return null;
+  let target = SHORT[code], hash = '';
+  const h = target.indexOf('#');
+  if (h >= 0) { hash = target.slice(h); target = target.slice(0, h); }
+  const q = new URLSearchParams(target.slice(1));
+  url.searchParams.forEach((v, k) => q.set(k, v));
+  const qs = q.toString().replace(/=(&|$)/g, '$1');
+  return new Response(null, { status: 302, headers: { location: HOME + '/' + (qs ? '?' + qs : '') + hash, 'cache-control': 'no-store' } });
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (url.pathname === '/api/availability') return availability(url, env, ctx);
+    const sl = shortLink(url); if (sl) return sl;
     // Old addresses -> the hotel's own address. Email images (/img/) stay served here.
     if ((url.hostname.endsWith('.workers.dev') || url.hostname === 'footeprints.pages.dev') && !url.pathname.startsWith('/img/')) {
       return Response.redirect(HOME + url.pathname + url.search + url.hash, 301);
