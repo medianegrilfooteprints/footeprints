@@ -35,6 +35,7 @@ const SHORT = {
   wa:    '?utm_source=whatsapp&utm_medium=chat&utm_campaign=hotel',
   mail:  '?utm_source=email&utm_medium=signature&utm_campaign=hotel',
   qr:    '?utm_source=qr&utm_medium=print&utm_campaign=hotel',
+  promo: '?utm_source=instagram&utm_medium=manychat&utm_campaign=promo#rooms',
   team:  '?notrack',
 };
 
