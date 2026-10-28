@@ -1415,6 +1415,8 @@ html:has(.view.menu-view:not([hidden])) .bird-fab{display:none}
 .cookie-b{display:flex; gap:8px; justify-content:flex-end}
 .cookie button{font:inherit; font-size:14px; font-weight:600; min-height:40px; padding:0 18px; border-radius:var(--r-btn); border:1px solid rgba(255,255,255,.35); background:transparent; color:#fff; cursor:pointer}
 .cookie button.ok{background:var(--seafoam); border-color:var(--seafoam); color:var(--seafoam-ink)}
+.cookie button.ck-out{min-height:0; padding:0; border:0; background:none; font-size:13px; font-weight:400; color:#fff; text-decoration:underline}
+.cookie-b{align-items:center}
 /* v22.3: small phones */
 @media (max-width:719px){
   .hub-hero .inner{padding-top:calc(26px + min(190px,52vw) * 0.52 + 26px)}
@@ -1701,7 +1703,7 @@ a.crow:hover b, .crow b a:hover{text-decoration:underline}
 <p>If you message us on WhatsApp, call or email us, we use your details to answer you.</p>
 <h2>Analytics and cookies</h2>
 <p>We use <b>Umami</b> to count visits and clicks. It doesn’t use cookies and doesn’t collect personal information.</p>
-<p>We use the <b>Meta Pixel</b> (Facebook and Instagram) to see how our ads perform and to show you relevant FootePrints ads. It uses cookies, and it runs only if you don’t decline it in the cookie notice. Your browser remembers your choice.</p>
+<p>We use the <b>Meta Pixel</b> (Facebook and Instagram) to see how our ads perform and to show you relevant FootePrints ads. It uses cookies. You can turn it off at any time: tap “Opt out” in the cookie notice, or <button type="button" class="link-btn" data-optout>opt out of ad cookies here</button>.<span data-optout-done hidden> Done: ad cookies are off in this browser.</span> Your browser remembers your choice.</p>
 <p><button type="button" class="ck-reset" data-ck-reset>Change my cookie choice</button></p>
 
 <h2>Who we share it with</h2>
@@ -1724,7 +1726,7 @@ a.crow:hover b, .crow b a:hover{text-decoration:underline}
 </div>
 </section>
 <footer><div class="wrap foot"><div class="pills"><a class="pill" href="https://www.instagram.com/negrilfooteprintshotel/" target="_blank" rel="noopener" data-umami-event="lite-ig-hotel"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg><span>Hotel</span></a><a class="pill" href="https://www.instagram.com/footeprints_dining/" target="_blank" rel="noopener" data-umami-event="lite-ig-dining"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg><span>Dining</span></a><span class="brk" aria-hidden="true"></span><a class="pill" href="https://www.tiktok.com/@negrilfooteprintshotel" target="_blank" rel="noopener" data-umami-event="lite-tiktok"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.6 3c.4 2.3 1.8 3.8 4.1 4.1v3.2c-1.5 0-2.9-.4-4.1-1.2v6.4a5.6 5.6 0 1 1-5.6-5.6c.3 0 .6 0 .9.1v3.3a2.4 2.4 0 1 0 1.5 2.2V3h3.2z"/></svg><span>TikTok</span></a><a class="pill" href="https://www.facebook.com/footeprintsnegril" target="_blank" rel="noopener" data-umami-event="lite-facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13.6 21v-7.6h2.6l.4-3.1h-3V8.4c0-.9.3-1.5 1.5-1.5h1.6V4.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H7.9v3.1h2.6V21h3.1z"/></svg><span>Facebook</span></a></div><p>Family-owned on Seven Mile Beach since 1985<br>Norman Manley Boulevard, Negril, Jamaica<br>AAA Three Diamond · All prices in US dollars (USD)</p><img src="../img/logo-white.png" alt="Negril FootePrints Hotel" width="140"><div class="credit"><span>© 2026 Negril FootePrints Hotel. All rights reserved. <a href="./" style="white-space:nowrap">Privacy policy</a></span><span>Website design &amp; development by <a href="https://www.instagram.com/kari_gall_ja/" target="_blank" rel="noopener" data-umami-event="lite-credit-karina">Karina Galliamova</a></span></div></div></footer>
-<div class="cookie" id="cookie" hidden role="region" aria-label="Cookie notice"><p>We use cookies to see how this page is used and to show you relevant FootePrints ads on Instagram and Facebook. <a href="./">Privacy policy</a></p><div class="cookie-b"><button type="button" data-ck="no">Decline</button><button type="button" data-ck="ok" class="ok">OK</button></div></div>
+<div class="cookie" id="cookie" hidden role="region" aria-label="Cookie notice"><p>By using this site, you agree to our use of cookies to see how the page is used and to show you relevant FootePrints ads on Instagram and Facebook. <a href="./">Privacy policy</a></p><div class="cookie-b"><button type="button" data-ck="no" class="ck-out">Opt out</button><button type="button" data-ck="ok" class="ok">OK</button></div></div>
 <script>
 (function(){
   var box = document.getElementById('cookie');
@@ -1738,5 +1740,6 @@ a.crow:hover b, .crow b a:hover{text-decoration:underline}
     try { localStorage.removeItem('fp-consent'); } catch(x){} box.hidden = false; box.scrollIntoView({block: 'end'}); });
 })();
 </script>
+<script>document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest("[data-optout]");if(!b)return;try{localStorage.setItem("fp-consent","no")}catch(x){}try{if(typeof fbq==="function")fbq("consent","revoke")}catch(x){}var d=document.querySelector("[data-optout-done]");if(d)d.hidden=false;var c=document.getElementById("cookie");if(c)c.hidden=true;});</script>
 </body>
 </html>
