@@ -2133,6 +2133,13 @@ a.crow:hover b, .crow b a:hover{text-decoration:underline}
       }).catch(function(){ promoOn = false; calc(); });
     }
     pIn.addEventListener('input', checkPromo); pIn.addEventListener('change', checkPromo);
+    // Deep link from the ManyChat code message: #promo-CODE opens the request form with the code filled in
+    (function(){
+      var m = (location.hash || '').match(/^#promo-([A-Za-z0-9]{3,20})$/); if (!m) return;
+      if (today > PROMO.until) { var rm = document.getElementById('rooms'); if (rm) setTimeout(function(){ rm.scrollIntoView(); }, 300); return; }
+      D.fam.promo = PROMO.rooms.slice();
+      setTimeout(function(){ openReq('promo', PROMO.rooms[0]); pIn.value = m[1].toUpperCase(); checkPromo(); }, 300);
+    })();
     ['room', 'checkin', 'checkout', 'adults', 'child', 'local', 'ai', 'transfer', 'late'].forEach(function(k){
       f[k].addEventListener('change', function(){ if (k === 'adults' || k === 'child') trRule(); calc(); });
       f[k].addEventListener('input', function(){ calc(); });
