@@ -36,6 +36,7 @@ const SHORT = {
   mail:  '?utm_source=email&utm_medium=signature&utm_campaign=hotel',
   qr:    '?utm_source=qr&utm_medium=print&utm_campaign=hotel',
   promo: '?utm_source=instagram&utm_medium=manychat&utm_campaign=promo#rooms',
+  ofk:   '?utm_source=instagram&utm_medium=social&utm_campaign=oceanfront_king#request-OFK',
   team:  '?notrack',
 };
 
