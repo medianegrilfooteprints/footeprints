@@ -2140,6 +2140,12 @@ a.crow:hover b, .crow b a:hover{text-decoration:underline}
       D.fam.promo = PROMO.rooms.slice();
       setTimeout(function(){ openReq('promo', PROMO.rooms[0]); pIn.value = m[1].toUpperCase(); checkPromo(); }, 300);
     })();
+    // Deep link for a single room: #request-OFK opens the request form with that room chosen
+    (function(){
+      var m = (location.hash || '').match(/^#request-([A-Za-z]{3})$/); if (!m) return;
+      var c = m[1].toUpperCase(); if (!D.types[c]) return;
+      setTimeout(function(){ openReq(D.types[c].f, c); }, 300);
+    })();
     ['room', 'checkin', 'checkout', 'adults', 'child', 'local', 'ai', 'transfer', 'late'].forEach(function(k){
       f[k].addEventListener('change', function(){ if (k === 'adults' || k === 'child') trRule(); calc(); });
       f[k].addEventListener('input', function(){ calc(); });
