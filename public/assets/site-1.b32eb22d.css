@@ -1,0 +1,182 @@
+
+/* ===== 24 Nov: header, menu and waves (home page review) ===== */
+nav.navstrip{display:none!important}
+.mb{display:inline-flex; align-items:center; gap:10px; background:none; border:0; padding:10px 0; cursor:pointer;
+  font:500 12px/1 var(--body); letter-spacing:.18em; text-transform:uppercase; color:var(--ink)}
+.ham{display:grid; gap:5px; width:22px} .ham b{display:block; height:1.5px; background:currentColor; border-radius:1px} .ham b:last-child{width:14px}
+.bk{display:inline-flex; align-items:center; justify-content:center; min-height:40px; padding:0 18px; border-radius:var(--r-btn);
+  background:var(--seafoam); color:var(--ocean-deep); font:600 13.5px/1 var(--body); letter-spacing:.01em; white-space:nowrap}
+.bk:hover{filter:brightness(1.04)}
+.topbar.tb2 .wrap{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; min-height:58px}
+.topbar.tb2 .brand{justify-self:center} .topbar.tb2 .bk, .topbar.tb2 .mb-r{justify-self:end} .topbar.tb2 .back{justify-self:start}
+.sbar{position:fixed!important; top:0; left:0; right:0; z-index:45; transform:translateY(-105%); transition:transform .3s ease; box-shadow:0 1px 0 var(--line)}
+.sbar.on{transform:none}
+.sbar .wrap{max-width:1180px!important; width:100%; margin:0 auto}
+.hub-hero .hdr{position:absolute; top:0; left:0; right:0; z-index:3; display:flex; justify-content:space-between; align-items:center; padding:20px 26px}
+.hub-hero .hdr .mb{color:#fff}
+.hub-hero .hdr .bk{background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.55); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px)}
+.hub-hero .hdr .bk:hover{background:rgba(255,255,255,.22)}
+/* the menu */
+html.menu-open{overflow:hidden}
+html.menu-open .bird-fab, html.menu-open .fab{opacity:0; pointer-events:none}
+.ov{position:fixed; inset:0; z-index:90; overflow-y:auto; color:#fff; background-color:var(--ocean); background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1500 843' preserveAspectRatio='xMidYMid slice'%3E%3Cg transform='translate(0 843) rotate(-90)'%3E%3Cpath fill='rgba(255,255,255,.06)' fill-rule='evenodd' d='M-0 1357 L-0 1213 L18 1195 C47 1167 79 1131 117 1087 C202 986 242 945 289 908 C358 854 421 828 504 819 C628 804 712 751 833 611 C838 606 842 601 843 601 C843 601 843 708 843 838 L843 1075 L833 1075 C802 1075 767 1069 732 1056 C724 1053 712 1049 706 1047 C650 1027 582 1024 529 1037 C435 1061 359 1132 266 1283 C191 1405 144 1460 86 1494 C77 1500 77 1500 38 1500 L0 1500 L-0 1357 Z M514 1497 C519 1489 536 1468 546 1457 C628 1362 720 1333 831 1368 L843 1371 L843 1436 L843 1500 L677 1500 C512 1500 512 1500 514 1497 Z M0 784 L0 592 L9 580 C64 506 123 463 194 446 C219 440 231 439 269 438 C308 438 320 438 337 435 C437 423 516 369 593 260 C612 232 632 199 664 144 C701 81 726 43 754 9 L762 0 L802 0 L843 0 L843 177 L843 354 L831 368 C819 381 799 404 761 449 C670 556 612 607 539 643 C497 664 458 675 404 682 C338 689 290 706 238 739 C178 776 129 824 33 938 C18 955 5 970 3 972 C0 976 0 976 0 784 Z M0 129 L0 0 L238 -0 C475 -0 475 -0 472 5 C410 113 345 179 274 209 C236 225 209 230 156 231 C117 231 99 232 79 235 C56 239 29 246 9 254 C4 256 0 258 0 258 C0 258 0 200 0 129 Z'/%3E%3C/g%3E%3C/svg%3E"); background-size:cover; background-position:center;
+  display:grid; grid-template-rows:auto 1fr auto; gap:24px; padding:20px 28px 30px; opacity:0; transition:opacity .28s ease}
+.ov[hidden]{display:none} .ov.open{opacity:1}
+.ov-top{display:grid; grid-template-columns:1fr auto 1fr; align-items:center}
+.ov-top .x{justify-self:start; display:inline-flex; align-items:center; gap:10px; background:none; border:0; padding:10px 0; cursor:pointer; color:#fff; font:500 12px/1 var(--body); letter-spacing:.18em; text-transform:uppercase}
+.ov-top .x svg{width:18px; height:18px}
+.ov-top .ov-logo img{width:118px; display:block}
+.ov-top .bk{justify-self:end}
+.ov-nav{align-self:center; justify-self:center; width:100%; max-width:900px; display:grid; grid-template-columns:1fr 1fr; gap:0 72px}
+.ov-nav a{display:grid; gap:5px; padding:15px 0; border-bottom:1px solid rgba(255,255,255,.12)}
+.ov-nav .n{font-family:var(--display); font-weight:400; font-size:34px; line-height:1.05; letter-spacing:-.01em; transition:color .2s}
+.ov-nav .d{font-size:13.5px; line-height:1.4; color:rgba(255,255,255,.72)}
+.ov-nav a:hover .n, .ov-nav a[aria-current] .n{color:var(--seafoam); font-style:italic}
+.ov-foot{display:grid; gap:14px; justify-items:center; text-align:center}
+.ov-on{display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px 22px; font-size:13.5px}
+.ov-on .k{font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.6)}
+.ov-on a, .ov-c a{color:#fff; text-decoration:underline; text-underline-offset:4px; text-decoration-color:rgba(125,211,188,.7)}
+.ov-on a svg{display:none}
+.ov-c{display:flex; flex-wrap:wrap; justify-content:center; gap:8px 22px; font-size:13.5px; color:rgba(255,255,255,.8)}
+/* the waves in the footer */
+footer{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1500 843' preserveAspectRatio='xMidYMid slice'%3E%3Cg transform='translate(0 843) rotate(-90)'%3E%3Cpath fill='rgba(255,255,255,.06)' fill-rule='evenodd' d='M-0 1357 L-0 1213 L18 1195 C47 1167 79 1131 117 1087 C202 986 242 945 289 908 C358 854 421 828 504 819 C628 804 712 751 833 611 C838 606 842 601 843 601 C843 601 843 708 843 838 L843 1075 L833 1075 C802 1075 767 1069 732 1056 C724 1053 712 1049 706 1047 C650 1027 582 1024 529 1037 C435 1061 359 1132 266 1283 C191 1405 144 1460 86 1494 C77 1500 77 1500 38 1500 L0 1500 L-0 1357 Z M514 1497 C519 1489 536 1468 546 1457 C628 1362 720 1333 831 1368 L843 1371 L843 1436 L843 1500 L677 1500 C512 1500 512 1500 514 1497 Z M0 784 L0 592 L9 580 C64 506 123 463 194 446 C219 440 231 439 269 438 C308 438 320 438 337 435 C437 423 516 369 593 260 C612 232 632 199 664 144 C701 81 726 43 754 9 L762 0 L802 0 L843 0 L843 177 L843 354 L831 368 C819 381 799 404 761 449 C670 556 612 607 539 643 C497 664 458 675 404 682 C338 689 290 706 238 739 C178 776 129 824 33 938 C18 955 5 970 3 972 C0 976 0 976 0 784 Z M0 129 L0 0 L238 -0 C475 -0 475 -0 472 5 C410 113 345 179 274 209 C236 225 209 230 156 231 C117 231 99 232 79 235 C56 239 29 246 9 254 C4 256 0 258 0 258 C0 258 0 200 0 129 Z'/%3E%3C/g%3E%3C/svg%3E"); background-size:cover; background-position:center}
+/* What's on: four on one screen, on sand with the light waves */
+.wo-band{background:var(--sand) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1500 843' preserveAspectRatio='xMidYMid slice'%3E%3Cg transform='translate(0 843) rotate(-90)'%3E%3Cpath fill='rgba(22,52,58,.07)' fill-rule='evenodd' d='M-0 1357 L-0 1213 L18 1195 C47 1167 79 1131 117 1087 C202 986 242 945 289 908 C358 854 421 828 504 819 C628 804 712 751 833 611 C838 606 842 601 843 601 C843 601 843 708 843 838 L843 1075 L833 1075 C802 1075 767 1069 732 1056 C724 1053 712 1049 706 1047 C650 1027 582 1024 529 1037 C435 1061 359 1132 266 1283 C191 1405 144 1460 86 1494 C77 1500 77 1500 38 1500 L0 1500 L-0 1357 Z M514 1497 C519 1489 536 1468 546 1457 C628 1362 720 1333 831 1368 L843 1371 L843 1436 L843 1500 L677 1500 C512 1500 512 1500 514 1497 Z M0 784 L0 592 L9 580 C64 506 123 463 194 446 C219 440 231 439 269 438 C308 438 320 438 337 435 C437 423 516 369 593 260 C612 232 632 199 664 144 C701 81 726 43 754 9 L762 0 L802 0 L843 0 L843 177 L843 354 L831 368 C819 381 799 404 761 449 C670 556 612 607 539 643 C497 664 458 675 404 682 C338 689 290 706 238 739 C178 776 129 824 33 938 C18 955 5 970 3 972 C0 976 0 976 0 784 Z M0 129 L0 0 L238 -0 C475 -0 475 -0 472 5 C410 113 345 179 274 209 C236 225 209 230 156 231 C117 231 99 232 79 235 C56 239 29 246 9 254 C4 256 0 258 0 258 C0 258 0 200 0 129 Z'/%3E%3C/g%3E%3C/svg%3E") center/cover no-repeat; padding:44px 0 48px}
+.wo-band .block{padding:0!important; margin:0!important}
+.wo-band + *{margin-top:0!important}
+.wo-band .on-row{display:grid!important; grid-template-columns:repeat(4,1fr); gap:14px; overflow:visible!important; margin:0!important; padding:0!important; scroll-snap-type:none}
+.wo-band .on-row > *{flex:none!important; min-width:0}
+.wo-band .on-card{background:#fff}
+.wo-band .on-card img{aspect-ratio:4/5}
+/* calmer ratings: white 6% cards on the dark band instead of a seafoam block */
+.trust .ratings{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:#fff}
+.trust .rt span{color:rgba(255,255,255,.72)}
+.trust .rt + .rt, .trust .rt:nth-child(n+3){border-color:rgba(255,255,255,.12)}
+.trust .rt b{font-size:28px}
+/* FAQ as wide as the other blocks */
+#questions .faq{max-width:none}
+/* the review request, now with the contacts on a light background */
+.ask.ask-light{margin-top:14px; border-color:var(--line); background:var(--sand)}
+.ask.ask-light .ask-t b{color:var(--ink)} .ask.ask-light .ask-t span{color:var(--ink-soft)}
+.ask.ask-light .btn{color:var(--ink); border-color:rgba(22,52,58,.3); background:#fff}
+.ask.ask-light .btn:hover{background:var(--shell)}
+/* tiles: Stay and Dining across the page, then four smaller options */
+@media (min-width:720px){
+  .tiles{grid-template-columns:repeat(4,1fr)!important}
+  .tiles .tile{grid-column:span 1; aspect-ratio:4/5}
+  .tiles .tile.wide{grid-column:1 / -1; aspect-ratio:21/8}
+  .tiles .tile.wide2{aspect-ratio:21/7}
+  .tiles .tile .t{font-size:21px}
+  .tiles .tile.wide .t{font-size:32px}
+}
+.tile.wide2 img{object-position:50% 55%}
+/* why book with us */
+.bd{margin-top:18px; padding:22px 22px 24px; border-radius:var(--r-photo); background:var(--sand); display:grid; gap:16px}
+.bd-h{margin:0; font-family:var(--display); font-weight:400; font-size:24px; line-height:1.15; color:var(--ink)}
+.bd-l{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+.bd-l li{display:grid; gap:5px; align-content:start}
+.bd-l svg{width:24px; height:24px; color:var(--seafoam-ink); margin-bottom:4px}
+.bd-l b{font-size:15px; font-weight:600; color:var(--ink)}
+.bd-l span{font-size:13.5px; line-height:1.45; color:var(--ink-soft)}
+.bd-l a{color:var(--ink); text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(12,74,63,.45)}
+.bd .btn{justify-self:start}
+/* A look around: photos only, Pinterest-style; tap a photo to see it full screen */
+.gal-pin .gal-head .count{display:none}
+.gal-pin .shot-card figcaption{display:none}
+.gal-pin .shot-card{cursor:zoom-in; border-radius:12px; overflow:hidden; margin:0; position:relative}
+.gal-pin .shot-card img{display:block; width:100%; object-fit:cover; border-radius:0; transition:transform .5s ease}
+.gal-pin .shot-card:hover img{transform:scale(1.03)}
+.gal-pin.gal-a .gal-row{display:block!important; columns:4; column-gap:12px; overflow:visible!important; scroll-snap-type:none; margin:0!important; padding:0!important}
+.gal-pin.gal-a .shot-card{break-inside:avoid; margin:0 0 12px!important; width:auto!important; flex:none!important; display:block}
+.gal-pin.gal-a .shot-card img{height:auto!important; aspect-ratio:2/3}
+.gal-pin.gal-a .shot-card:nth-child(5n+2) img{aspect-ratio:1/1}
+.gal-pin.gal-a .shot-card:nth-child(5n+3) img{aspect-ratio:3/4}
+.gal-pin.gal-a .shot-card:nth-child(5n+4) img{aspect-ratio:4/5}
+.gal-pin.gal-a .shot-card:nth-child(5n) img{aspect-ratio:3/5}
+.gal-pin.gal-b .gal-row{display:flex!important; flex-direction:column; flex-wrap:wrap; align-content:flex-start; gap:8px; height:528px; overflow-x:auto!important; scroll-snap-type:none}
+.gal-pin.gal-b .shot-card{flex:none!important; width:240px!important}
+.gal-pin.gal-b .shot-card img{height:100%!important}
+.gal-pin.gal-b .shot-card:nth-child(4n+1), .gal-pin.gal-b .shot-card:nth-child(4n){height:220px}
+.gal-pin.gal-b .shot-card:nth-child(4n+2), .gal-pin.gal-b .shot-card:nth-child(4n+3){height:300px}
+.fp-lb{position:fixed; inset:0; z-index:95; background:rgba(6,28,32,.96); display:grid; place-items:center; opacity:0; transition:opacity .25s}
+.fp-lb[hidden]{display:none} .fp-lb.open{opacity:1}
+.fp-lb img{max-width:94vw; max-height:84vh; object-fit:contain; border-radius:6px; user-select:none; -webkit-user-drag:none}
+.fp-lb button{position:absolute; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.25); color:#fff; width:46px; height:46px; border-radius:50%; display:grid; place-items:center; cursor:pointer}
+.fp-lb button:hover{background:rgba(255,255,255,.2)}
+.fp-lb button svg{width:18px; height:18px}
+.fp-lb .fp-lb-x{top:16px; right:16px} .fp-lb .fp-lb-p{left:16px; top:50%; transform:translateY(-50%)} .fp-lb .fp-lb-n{right:16px; top:50%; transform:translateY(-50%)}
+.fp-lb .fp-lb-c{position:absolute; bottom:18px; left:0; right:0; text-align:center; font-size:12px; letter-spacing:.16em; color:rgba(255,255,255,.7)}
+html.lb-open{overflow:hidden}
+html.lb-open .bird-fab{opacity:0; pointer-events:none}
+/* hero: not all-inclusive, rooms almost gone */
+.hub-hero .strip-sub .ai{display:block; margin-top:4px; color:var(--on-dark-soft)}
+.hub-hero .strip-sub .ai a{color:#fff; text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(125,211,188,.8)}
+.rooms-pill .few{display:block; margin-top:4px}
+/* Getting here: photo beside the facts on wide screens */
+@media (min-width:880px){
+  .gh{display:grid!important; grid-template-columns:1.05fr 1fr; column-gap:28px; align-items:start}
+  .gh > .label{grid-column:1 / -1}
+  .gh > .place{grid-column:1; grid-row:2 / span 4; aspect-ratio:4/3!important; height:100%; margin:0!important}
+  .gh > :not(.label):not(.place){grid-column:2}
+  .gh .routes{margin-top:0!important}
+}
+/* Good to know: open on wide screens, tap to open on phones */
+.gk > summary{list-style:none; cursor:default; pointer-events:none}
+.gk > summary::-webkit-details-marker{display:none}
+.gk > summary h3{margin:0}
+.gk-key{display:none}
+@media (max-width:719px){
+  .hub-hero .hdr{padding:14px 16px}
+  .ov{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 843 1500' preserveAspectRatio='xMidYMid slice'%3E%3Cpath fill='rgba(255,255,255,.06)' fill-rule='evenodd' d='M-0 1357 L-0 1213 L18 1195 C47 1167 79 1131 117 1087 C202 986 242 945 289 908 C358 854 421 828 504 819 C628 804 712 751 833 611 C838 606 842 601 843 601 C843 601 843 708 843 838 L843 1075 L833 1075 C802 1075 767 1069 732 1056 C724 1053 712 1049 706 1047 C650 1027 582 1024 529 1037 C435 1061 359 1132 266 1283 C191 1405 144 1460 86 1494 C77 1500 77 1500 38 1500 L0 1500 L-0 1357 Z M514 1497 C519 1489 536 1468 546 1457 C628 1362 720 1333 831 1368 L843 1371 L843 1436 L843 1500 L677 1500 C512 1500 512 1500 514 1497 Z M0 784 L0 592 L9 580 C64 506 123 463 194 446 C219 440 231 439 269 438 C308 438 320 438 337 435 C437 423 516 369 593 260 C612 232 632 199 664 144 C701 81 726 43 754 9 L762 0 L802 0 L843 0 L843 177 L843 354 L831 368 C819 381 799 404 761 449 C670 556 612 607 539 643 C497 664 458 675 404 682 C338 689 290 706 238 739 C178 776 129 824 33 938 C18 955 5 970 3 972 C0 976 0 976 0 784 Z M0 129 L0 0 L238 -0 C475 -0 475 -0 472 5 C410 113 345 179 274 209 C236 225 209 230 156 231 C117 231 99 232 79 235 C56 239 29 246 9 254 C4 256 0 258 0 258 C0 258 0 200 0 129 Z'/%3E%3C/svg%3E"); padding:14px 18px 24px; gap:12px}
+  .ov-top .ov-logo img{width:96px}
+  .ov-nav{grid-template-columns:1fr; align-self:start}
+  .ov-nav a{padding:11px 0; gap:3px}
+  .ov-nav .n{font-size:27px}
+  .ov-nav .d{font-size:12.5px}
+  footer{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 843 1500' preserveAspectRatio='xMidYMid slice'%3E%3Cpath fill='rgba(255,255,255,.06)' fill-rule='evenodd' d='M-0 1357 L-0 1213 L18 1195 C47 1167 79 1131 117 1087 C202 986 242 945 289 908 C358 854 421 828 504 819 C628 804 712 751 833 611 C838 606 842 601 843 601 C843 601 843 708 843 838 L843 1075 L833 1075 C802 1075 767 1069 732 1056 C724 1053 712 1049 706 1047 C650 1027 582 1024 529 1037 C435 1061 359 1132 266 1283 C191 1405 144 1460 86 1494 C77 1500 77 1500 38 1500 L0 1500 L-0 1357 Z M514 1497 C519 1489 536 1468 546 1457 C628 1362 720 1333 831 1368 L843 1371 L843 1436 L843 1500 L677 1500 C512 1500 512 1500 514 1497 Z M0 784 L0 592 L9 580 C64 506 123 463 194 446 C219 440 231 439 269 438 C308 438 320 438 337 435 C437 423 516 369 593 260 C612 232 632 199 664 144 C701 81 726 43 754 9 L762 0 L802 0 L843 0 L843 177 L843 354 L831 368 C819 381 799 404 761 449 C670 556 612 607 539 643 C497 664 458 675 404 682 C338 689 290 706 238 739 C178 776 129 824 33 938 C18 955 5 970 3 972 C0 976 0 976 0 784 Z M0 129 L0 0 L238 -0 C475 -0 475 -0 472 5 C410 113 345 179 274 209 C236 225 209 230 156 231 C117 231 99 232 79 235 C56 239 29 246 9 254 C4 256 0 258 0 258 C0 258 0 200 0 129 Z'/%3E%3C/svg%3E")}
+  .wo-band{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 843 1500' preserveAspectRatio='xMidYMid slice'%3E%3Cpath fill='rgba(22,52,58,.07)' fill-rule='evenodd' d='M-0 1357 L-0 1213 L18 1195 C47 1167 79 1131 117 1087 C202 986 242 945 289 908 C358 854 421 828 504 819 C628 804 712 751 833 611 C838 606 842 601 843 601 C843 601 843 708 843 838 L843 1075 L833 1075 C802 1075 767 1069 732 1056 C724 1053 712 1049 706 1047 C650 1027 582 1024 529 1037 C435 1061 359 1132 266 1283 C191 1405 144 1460 86 1494 C77 1500 77 1500 38 1500 L0 1500 L-0 1357 Z M514 1497 C519 1489 536 1468 546 1457 C628 1362 720 1333 831 1368 L843 1371 L843 1436 L843 1500 L677 1500 C512 1500 512 1500 514 1497 Z M0 784 L0 592 L9 580 C64 506 123 463 194 446 C219 440 231 439 269 438 C308 438 320 438 337 435 C437 423 516 369 593 260 C612 232 632 199 664 144 C701 81 726 43 754 9 L762 0 L802 0 L843 0 L843 177 L843 354 L831 368 C819 381 799 404 761 449 C670 556 612 607 539 643 C497 664 458 675 404 682 C338 689 290 706 238 739 C178 776 129 824 33 938 C18 955 5 970 3 972 C0 976 0 976 0 784 Z M0 129 L0 0 L238 -0 C475 -0 475 -0 472 5 C410 113 345 179 274 209 C236 225 209 230 156 231 C117 231 99 232 79 235 C56 239 29 246 9 254 C4 256 0 258 0 258 C0 258 0 200 0 129 Z'/%3E%3C/svg%3E"); padding:34px 0 36px}
+  .wo-band .on-row{grid-template-columns:1fr 1fr; gap:10px}
+  .wo-band .on-card{border-radius:var(--r-card)}
+  .wo-band .on-card img{aspect-ratio:4/3}
+  .wo-band .on-txt{padding:9px 11px 11px; gap:1px}
+  .wo-band .on-txt .when{font-size:9.5px; letter-spacing:.08em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .wo-band .on-txt .what{font-size:15.5px; line-height:1.2}
+  .wo-band .on-txt .who{font-size:12px; line-height:1.35; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .wo-band .on-card .go{width:24px; height:24px; top:8px; right:8px}
+  .wo-band .on-card .go svg{width:11px; height:11px}
+  .bird-fab{width:52px; padding:0!important; justify-content:center}
+  .bird-fab span{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap}
+  .tiles .tile.wide2{aspect-ratio:16/9}
+  .hub-hero .strip-sub .sep{display:none}
+  .hub-hero .strip-sub .ss-b{display:block}
+  .bd{padding:18px 16px 20px; gap:14px}
+  .bd-h{font-size:21px}
+  .bd-l{grid-template-columns:1fr 1fr; gap:14px 12px}
+  .bd-l b{font-size:14px} .bd-l span{font-size:12.5px}
+  .bd .btn{justify-self:stretch}
+  .gal-pin.gal-a .gal-row{columns:2; column-gap:8px}
+  .gal-pin.gal-a .shot-card{margin:0 0 8px!important; border-radius:10px}
+  .gal-pin.gal-a .shot-card img{aspect-ratio:4/5}
+  .gal-pin.gal-a .shot-card:nth-child(5n+2) img{aspect-ratio:1/1}
+  .gal-pin.gal-a .shot-card:nth-child(5n+3) img{aspect-ratio:3/4}
+  .gal-pin.gal-a .shot-card:nth-child(5n+4) img{aspect-ratio:1/1}
+  .gal-pin.gal-a .shot-card:nth-child(5n) img{aspect-ratio:2/3}
+  .gal-pin.gal-b .gal-row{height:360px}
+  .gal-pin.gal-b .shot-card{width:150px!important; border-radius:10px}
+  .gal-pin.gal-b .shot-card:nth-child(4n+1), .gal-pin.gal-b .shot-card:nth-child(4n){height:150px}
+  .gal-pin.gal-b .shot-card:nth-child(4n+2), .gal-pin.gal-b .shot-card:nth-child(4n+3){height:202px}
+  .fp-lb .fp-lb-p, .fp-lb .fp-lb-n{top:auto; bottom:14px; transform:none} .fp-lb .fp-lb-c{bottom:30px}
+  .gh > .place{aspect-ratio:2/1!important}
+  .gk > summary{pointer-events:auto; cursor:pointer; display:flex; align-items:baseline; justify-content:space-between; gap:12px}
+  .gk > summary::after{content:"+"; font-size:22px; line-height:1; color:var(--seafoam)}
+  .gk[open] > summary::after{content:"\2212"}
+  .gk:not([open]) > summary .gk-key{display:block}
+  .gk-key{font-size:12.5px; color:var(--on-dark-soft); margin-top:4px}
+  .gk > summary > span:first-child{display:grid}
+  .gtk{gap:8px!important}
+  .gk{padding:16px 18px!important}
+}
+@media (max-width:479px){ .topbar.tb2 .mb-l{display:none} .topbar.tb2 .bk{padding:0 14px} }
+@media (max-width:380px){ .bk-x{display:none} }
+/* the WhatsApp button sat under Doctor Bird; WhatsApp is now in the menu and Contacts */
+html:has(.bird-fab) .fab{display:none}
