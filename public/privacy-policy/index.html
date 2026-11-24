@@ -20,7 +20,7 @@
 <script>try{var fq=location.search;if(/[?&]notrack(=|&|$)/.test(fq))localStorage.setItem("umami.disabled","1");if(/[?&]track(=|&|$)/.test(fq))localStorage.removeItem("umami.disabled");}catch(e){}</script><script>function fpNames(t,p){try{if(p&&p.url){p.url=location.pathname+location.search;}}catch(e){}return p;}</script><script defer src="https://cloud.umami.is/script.js" data-website-id="88f031e5-b5f9-4343-af8d-d07e18924fac" data-before-send="fpNames"></script>
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');try{if(localStorage.getItem('fp-consent')==='no'||localStorage.getItem('umami.disabled')){fbq('consent','revoke');}}catch(e){}fbq('init','27038872655767547');fbq('track','PageView');</script><noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=27038872655767547&ev=PageView&noscript=1"></noscript>
 <link rel="canonical" href="https://negrilfooteprints.com/">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Hotel", "name": "Negril FootePrints Hotel", "legalName": "Foote Prints on the Sands Hotel Limited", "url": "https://negrilfooteprints.com/", "telephone": "+1-718-785-0558", "address": {"@type": "PostalAddress", "streetAddress": "Norman Manley Boulevard, Seven Mile Beach", "addressLocality": "Negril", "addressCountry": "JM"}}</script><link rel="stylesheet" href="/assets/site-1.758eba63.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Hotel", "name": "Negril FootePrints Hotel", "legalName": "Foote Prints on the Sands Hotel Limited", "url": "https://negrilfooteprints.com/", "telephone": "+1-718-785-0558", "address": {"@type": "PostalAddress", "streetAddress": "Norman Manley Boulevard, Seven Mile Beach", "addressLocality": "Negril", "addressCountry": "JM"}}</script><link rel="stylesheet" href="/assets/site-1.b32eb22d.css">
 <style>
 .legal h2{font-size:22px;margin-top:10px}
 .legal h3{font:600 15px/1.3 var(--body);margin:2px 0 -14px;color:var(--seafoam-ink)}
@@ -129,43 +129,8 @@
     .observe(log, {childList: true, subtree: true});
 })();
 </script>
-<div class="ov" id="fp-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden><div class="ov-top"><button class="x" type="button" data-umami-event="menu-close"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Close</button><a class="ov-logo" href="/" data-umami-event="menu-home"><img src="/img/logo-white.png" alt="Negril FootePrints Hotel — home" width="118"></a><a class="bk" href="/stay/#rooms" data-umami-event="menu-book"><span>Book</span><span class="bk-x">&nbsp;a room</span></a></div><nav class="ov-nav" aria-label="Pages"><a href="/stay/" data-umami-event="menu-stay"><span class="n">Stay</span><span class="d">Rooms by the sea, breakfast included</span></a><a href="/day-pass/" data-umami-event="menu-daypass"><span class="n">Day Pass</span><span class="d">Beach, infinity pool and loungers, 9 AM – 5 PM</span></a><a href="/dining/" data-umami-event="menu-dining"><span class="n">Dining</span><span class="d">Blushy’s on the sand, Gatsby’s for dinner</span></a><a href="/spa/" data-umami-event="menu-spa"><span class="n">Spa</span><span class="d">Audrey’s Spa, open to everyone</span></a><a href="/soundscape/" data-umami-event="menu-soundscape"><span class="n">Soundscape</span><span class="d">Music, wellness and food by the sea</span></a><a href="/celebrations/" data-umami-event="menu-events"><span class="n">Celebrations</span><span class="d">Weddings, birthdays, private dinners</span></a><a href="/retreats/" data-umami-event="menu-retreats"><span class="n">Retreats</span><span class="d">Wellness, corporate and group stays</span></a><a href="/work-with-us/" data-umami-event="menu-work"><span class="n">Work with us</span><span class="d">Creators, press and careers</span></a></nav><div class="ov-foot"><div class="ov-on" hidden><span class="k">On this page</span></div><div class="ov-c"><a href="https://wa.me/18558223591" target="_blank" rel="noopener" data-umami-event="menu-whatsapp">WhatsApp +1 855 822-3591</a><a href="tel:+17187850558" data-umami-event="menu-call">Call +1 718 785-0558</a></div></div></div>
-<script>
-(function(){ // the menu, the slim bar on the home page, Good to know on phones, rooms almost gone
-  var ov = document.getElementById('fp-menu'); if (!ov) return;
-  var root = document.documentElement, last = null;
-  var view = document.querySelector('.view[data-shown]') || document;
-  var on = ov.querySelector('.ov-on'), src = view.querySelectorAll('.onpage a');
-  if (src.length) { on.hidden = false; Array.prototype.forEach.call(src, function(a){ var c = a.cloneNode(true); c.removeAttribute('data-ev'); c.setAttribute('data-umami-event', 'menu-onpage'); on.appendChild(c); }); }
-  var p = location.pathname;
-  Array.prototype.forEach.call(ov.querySelectorAll('.ov-nav a'), function(a){ if (p.indexOf(a.getAttribute('href')) === 0) a.setAttribute('aria-current', 'page'); });
-  function open(){ last = document.activeElement; ov.hidden = false; root.classList.add('menu-open'); requestAnimationFrame(function(){ ov.classList.add('open'); }); ov.querySelector('.x').focus(); }
-  function close(){ ov.classList.remove('open'); root.classList.remove('menu-open'); setTimeout(function(){ ov.hidden = true; }, 260); if (last && last.focus) try { last.focus({preventScroll: true}); } catch (e) {} }
-  document.addEventListener('click', function(e){
-    var t = e.target; if (!t.closest) return;
-    if (t.closest('.mb')) { e.preventDefault(); open(); return; }
-    if (t.closest('#fp-menu .x')) { close(); return; }
-    if (t.closest('#fp-menu a')) close();
-  }, true);
-  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !ov.hidden) close(); });
-  var bar = document.querySelector('.sbar'), hero = document.querySelector('.hub-hero');
-  if (bar && hero) {
-    var tick = function(){ var up = scrollY > hero.offsetHeight - 60; bar.classList.toggle('on', up); bar.setAttribute('aria-hidden', up ? 'false' : 'true');
-      Array.prototype.forEach.call(bar.querySelectorAll('a,button'), function(x){ x.tabIndex = up ? 0 : -1; }); };
-    addEventListener('scroll', tick, {passive: true}); tick();
-  }
-  if (matchMedia('(max-width:719px)').matches) Array.prototype.forEach.call(document.querySelectorAll('details.gk'), function(d){ d.open = false; });
-  var few = document.querySelector('.rooms-pill .few');
-  if (few && window.FP_live) {
-    var d = new Date(Date.now() - 5 * 3600e3), a = d.toISOString().slice(0, 10), b = new Date(d.getTime() + 864e5).toISOString().slice(0, 10);
-    window.FP_live(a, b).then(function(j){
-      if (!j || !j.types) return;
-      var n = ['HSK', 'HSD', 'OVQ', 'OVK', 'OVD'].reduce(function(s, c){ return s + (j.types[c] || 0); }, 0);
-      if (n >= 1 && n <= 5) { few.textContent = 'Only ' + n + (n === 1 ? ' room' : ' rooms') + ' left tonight'; few.hidden = false; }
-    });
-  }
-})();
-</script>
+<div class="ov" id="fp-menu" role="dialog" aria-modal="true" aria-label="Menu" hidden><div class="ov-top"><button class="x" type="button" data-umami-event="menu-close"><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Close</button><a class="ov-logo" href="/" data-umami-event="menu-home"><img src="/img/logo-white.png" alt="Negril FootePrints Hotel — home" width="118"></a><a class="bk" href="/stay/#rooms" data-umami-event="menu-book"><span>Book</span><span class="bk-x">&nbsp;a room</span></a></div><nav class="ov-nav" aria-label="Pages"><a href="/" class="ov-home" data-umami-event="menu-homepage"><span class="n">Home</span><span class="d">Back to the main page</span></a><a href="/stay/" data-umami-event="menu-stay"><span class="n">Stay</span><span class="d">Rooms by the sea, breakfast included</span></a><a href="/day-pass/" data-umami-event="menu-daypass"><span class="n">Day Pass</span><span class="d">Beach, infinity pool and loungers, 9 AM – 5 PM</span></a><a href="/dining/" data-umami-event="menu-dining"><span class="n">Dining</span><span class="d">Blushy’s on the sand, Gatsby’s for dinner</span></a><a href="/spa/" data-umami-event="menu-spa"><span class="n">Spa</span><span class="d">Audrey’s Spa, open to everyone</span></a><a href="/soundscape/" data-umami-event="menu-soundscape"><span class="n">Soundscape</span><span class="d">Music, wellness and food by the sea</span></a><a href="/celebrations/" data-umami-event="menu-events"><span class="n">Celebrations</span><span class="d">Weddings, birthdays, private dinners</span></a><a href="/retreats/" data-umami-event="menu-retreats"><span class="n">Retreats</span><span class="d">Wellness, corporate and group stays</span></a><a href="/work-with-us/" data-umami-event="menu-work"><span class="n">Work with us</span><span class="d">Creators, press and careers</span></a></nav><div class="ov-foot"><div class="ov-on" hidden><span class="k">On this page</span></div><div class="ov-c"><a href="https://wa.me/18558223591" target="_blank" rel="noopener" data-umami-event="menu-whatsapp">WhatsApp +1 855 822-3591</a><a href="tel:+17187850558" data-umami-event="menu-call">Call +1 718 785-0558</a></div></div></div>
+<script src="/assets/site-2.479423cc.js"></script>
 <script>
 (function(){  // multi-page: switch between pages that are already on this page (the four menus) without a reload
   function go(e){
