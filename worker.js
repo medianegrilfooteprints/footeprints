@@ -41,6 +41,12 @@ const SHORT = {
   tgtt:  '?utm_source=tiktok&utm_medium=social&utm_campaign=thanksgiving#thanksgiving',
   tgfb:  '?utm_source=facebook&utm_medium=social&utm_campaign=thanksgiving#thanksgiving',
   tggb:  '?utm_source=google&utm_medium=gbp_post&utm_campaign=thanksgiving#thanksgiving',   // Google Business Profile updates
+  bfig:  '?utm_source=instagram&utm_medium=social&utm_campaign=blackfriday#blackfriday',   // Black Friday / Cyber Monday 27 Nov - 1 Dec 2026
+  bftt:  '?utm_source=tiktok&utm_medium=social&utm_campaign=blackfriday#blackfriday',
+  bffb:  '?utm_source=facebook&utm_medium=social&utm_campaign=blackfriday#blackfriday',
+  bfth:  '?utm_source=threads&utm_medium=social&utm_campaign=blackfriday#blackfriday',
+  bfgb:  '?utm_source=google&utm_medium=gbp_post&utm_campaign=blackfriday#blackfriday',
+  bfem:  '?utm_source=email&utm_medium=newsletter&utm_campaign=blackfriday#blackfriday',
   team:  '?notrack',
 };
 
