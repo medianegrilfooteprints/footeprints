@@ -1906,7 +1906,10 @@ a.crow:hover b, .crow b a:hover{text-decoration:underline}
 function on(){var c=r.children,i=0,b=1e9;for(var j=0;j<c.length;j++){var x=Math.abs(c[j].offsetLeft-c[0].offsetLeft-r.scrollLeft);if(x<b){b=x;i=j;}}
 for(var k=0;k<d.length;k++)d[k].setAttribute('aria-current',k===i?'true':'false');}
 r.addEventListener('scroll',function(){requestAnimationFrame(on);},{passive:true});
-Array.prototype.forEach.call(d,function(b,j){b.addEventListener('click',function(){r.scrollTo({left:r.children[j].offsetLeft-r.children[0].offsetLeft,behavior:'smooth'});});});on();})();</script>
+Array.prototype.forEach.call(d,function(b,j){b.addEventListener('click',function(){r.scrollTo({left:r.children[j].offsetLeft-r.children[0].offsetLeft,behavior:'smooth'});});});on();})();
+(function(){var go=location.hash==='#thanksgiving'||(!location.hash&&/[?&]utm_campaign=thanksgiving(&|$)/.test(location.search));if(!go)return;
+function to(){var t=document.getElementById('thanksgiving');if(t&&getComputedStyle(t).display!=='none')t.scrollIntoView({block:'start'});}
+if(document.readyState==='complete')setTimeout(to,50);else window.addEventListener('load',function(){setTimeout(to,50);});})();</script>
 </div></section>
 <section class="band dark lite-band trust" id="good" aria-labelledby="good-h"><div class="wrap block dp-w"><h2 class="label" id="good-h">Good to know</h2>
 <div class="swp"><div class="gal-head"><span class="swipe-hint">Swipe for more</span><span class="count dark-count" aria-live="polite">1 / 7</span></div>

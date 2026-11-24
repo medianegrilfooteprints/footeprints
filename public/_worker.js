@@ -40,6 +40,7 @@ const SHORT = {
   tgig:  '?utm_source=instagram&utm_medium=social&utm_campaign=thanksgiving#thanksgiving',   // Thanksgiving 26 Nov 2026
   tgtt:  '?utm_source=tiktok&utm_medium=social&utm_campaign=thanksgiving#thanksgiving',
   tgfb:  '?utm_source=facebook&utm_medium=social&utm_campaign=thanksgiving#thanksgiving',
+  tggb:  '?utm_source=google&utm_medium=gbp_post&utm_campaign=thanksgiving#thanksgiving',   // Google Business Profile updates
   team:  '?notrack',
 };
 
