@@ -1,11 +1,30 @@
-// FootePrints link in bio: the site's files, plus one small live service.
+// Negril FootePrints Hotel website (negrilfooteprints.com): the site's files, plus a few small services.
+// - /api/availability: free rooms for the dates a guest picks
+// - short tracked links (/ig, /dm, /bfig ...), on any of the site's addresses
+// - old addresses: WordPress pages -> new pages; booking and payment pages -> book.negrilfooteprints.com;
+//   visit.negrilfooteprints.com and www -> negrilfooteprints.com
 // GET /api/availability?in=YYYY-MM-DD&out=YYYY-MM-DD
 //   -> how many rooms of each type the hotel's booking engine has free for those dates.
 // The booking engine (negrilfooteprints.com/search-results) is read as a normal visitor would,
 // answers are cached for 5 minutes, and nothing about the guest is sent or stored.
 
 const ENGINE_DEFAULT = 'https://negrilfooteprints.com/search-results/';
-const HOME = 'https://visit.negrilfooteprints.com';
+const MAIN = 'https://negrilfooteprints.com';
+const BOOK = 'https://book.negrilfooteprints.com';
+// Old WordPress pages that Google still shows -> the matching new page (301 keeps their ranking)
+const OLD = {
+  '/hotel/': '/', '/suites/': '/stay/', '/accommodations/': '/stay/', '/accommodation/': '/stay/', '/oceanview-suite/': '/stay/',
+  '/services/': '/stay/', '/product/reservation/': '/stay/', '/skywalk/': '/dining/', '/area/': '/#faq', '/contact-us/': '/#contacts',
+  '/celebration/': '/celebrations/', '/soundscape-old/': '/soundscape/', '/shop/': '/soundscape/', '/product/access-pass/': '/soundscape/',
+  '/product/stay-access-package/': '/soundscape/', '/landing/': '/', '/test/': '/', '/hello-world/': '/', '/my-account-old/': '/',
+};
+const OLD_PREFIX = [['/accommodation/', '/stay/#rooms'], ['/services/', '/stay/']];
+// The booking engine and card payment now live at book.negrilfooteprints.com (moved by the hotel's web host).
+// 307/308 keep the method and body, so a payment in progress at the switch still completes.
+const TO_BOOK = ['/search-results/', '/search-availability/', '/booking-confirmation/', '/booking-cancellation/', '/cart/', '/checkout/', '/my-account/',
+                 '/fac-3ds-redirect/', '/fac-confirm-transaction/', '/wp-admin/', '/wp-login.php', '/wp-json/', '/wp-content/', '/wp-includes/'];
+const PAGES = ['/stay', '/day-pass', '/dining', '/spa', '/soundscape', '/celebrations', '/retreats', '/work-with-us', '/privacy-policy',
+               '/dining/breakfast', '/dining/lunch', '/dining/dinner', '/dining/drinks'];
 const CODES = {
   'hotel suite king': 'HSK', 'hotel suite double': 'HSD',
   'ocean view queen': 'OVQ', 'ocean view king': 'OVK', 'ocean view double': 'OVD',
@@ -50,7 +69,7 @@ const SHORT = {
   team:  '?notrack',
 };
 
-function shortLink(url) {
+function shortLink(url, home) {
   const parts = url.pathname.replace(/^\/+|\/+$/g, '').split('/');
   const code = (parts.shift() || '').toLowerCase();
   if (!code || !Object.prototype.hasOwnProperty.call(SHORT, code)) return null;
@@ -63,17 +82,29 @@ function shortLink(url) {
   if (tag && code !== 'team') q.set('utm_content', tag);
   url.searchParams.forEach((v, k) => q.set(k, v));
   const qs = q.toString().replace(/=(&|$)/g, '$1');
-  return new Response(null, { status: 302, headers: { location: HOME + '/' + (qs ? '?' + qs : '') + hash, 'cache-control': 'no-store' } });
+  return new Response(null, { status: 302, headers: { location: home + '/' + (qs ? '?' + qs : '') + hash, 'cache-control': 'no-store' } });
 }
 
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    if (url.pathname === '/api/availability') return availability(url, env, ctx);
-    const sl = shortLink(url); if (sl) return sl;
-    // Old addresses -> the hotel's own address. Email images (/img/) stay served here.
-    if ((url.hostname.endsWith('.workers.dev') || url.hostname === 'footeprints.pages.dev') && !url.pathname.startsWith('/img/')) {
-      return Response.redirect(HOME + url.pathname + url.search + url.hash, 301);
+    const host = url.hostname, p = url.pathname;
+    if (p === '/api/availability') return availability(url, env, ctx);
+    const official = host === 'negrilfooteprints.com' || host === 'www.negrilfooteprints.com' || host === 'visit.negrilfooteprints.com';
+    const home = official ? MAIN : url.origin;           // previews keep their own address
+    const sl = shortLink(url, home); if (sl) return sl;
+    // booking engine and payment pages -> the booking site, same path and query
+    if (TO_BOOK.some(x => p === x || p.startsWith(x) || p + '/' === x)) {
+      return new Response(null, { status: request.method === 'GET' || request.method === 'HEAD' ? 302 : 307, headers: { location: BOOK + p + url.search, 'cache-control': 'no-store' } });
+    }
+    // old pages -> new pages
+    const old = OLD[p] || OLD[p + '/'] || (OLD_PREFIX.find(([a]) => p.startsWith(a)) || [])[1];
+    if (old) return Response.redirect(home + old, 301);
+    // the same pages without the closing slash
+    if (PAGES.includes(p)) return Response.redirect(home + p + '/' + url.search, 301);
+    // www and the old link-in-bio address -> the main address (email images stay served on visit)
+    if ((host === 'www.negrilfooteprints.com' || host === 'visit.negrilfooteprints.com') && !p.startsWith('/img/')) {
+      return Response.redirect(MAIN + p + url.search, 301);
     }
     return env.ASSETS.fetch(request);
   },
