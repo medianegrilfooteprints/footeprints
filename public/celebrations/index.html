@@ -22,9 +22,8 @@
 <link rel="canonical" href="https://negrilfooteprints.com/">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Hotel", "name": "Negril FootePrints Hotel", "legalName": "Foote Prints on the Sands Hotel Limited", "url": "https://negrilfooteprints.com/", "telephone": "+1-718-785-0558", "address": {"@type": "PostalAddress", "streetAddress": "Norman Manley Boulevard, Seven Mile Beach", "addressLocality": "Negril", "addressCountry": "JM"}}</script><link rel="stylesheet" href="/assets/site-1.a6956344.css">
 <style>
-/* home: the pool by day, and lit up after 6 PM Jamaica time */
-.hub-hero > img.bg.tod{object-position:50% 58%}
-@media (max-width:719px){ .hub-hero > img.bg.tod{top:0; bottom:auto; height:100%; object-position:46% 50%} }
+/* Stay hero: the pool by day, and lit up after 6 PM Jamaica time */
+#view-stay .sec-hero img.tod{object-position:50% 58%}
 /* Stay top: the three facts read as a line, not as cards; "Why book with us" is its own block */
 .dp-top .spa-facts.facts3{background:none; border-radius:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
 .dp-top .spa-facts.facts3 div{padding:16px 18px 16px 0}
@@ -34,6 +33,16 @@
 .dp-top .bd-in .bd-h::after{content:""; flex:1; height:1px; background:currentColor; opacity:.25}
 .dp-top .bd-in .bd-l li{background:var(--sand); border-radius:var(--r-card); padding:18px 16px}
 .dp-top .cta{margin-top:28px}
+/* Stay: the intro (lede and facts) is dark, under the hero; "Why book with us" is its own light block */
+.st-intro{background:var(--ocean-deep); color:var(--on-dark)}
+.st-intro .dp-top{padding-block:6px 44px}
+.st-intro .lede{color:var(--on-dark)}
+.st-intro .spa-facts.facts3{border-color:rgba(255,255,255,.18)}
+.st-intro .spa-facts.facts3 div + div{border-left-color:rgba(255,255,255,.18)}
+.st-intro .spa-facts b, .st-intro .spa-facts b span{color:#fff}
+.st-intro .spa-facts > div > span{color:var(--on-dark-soft)}
+.st-why .dp-top{padding-block:48px 52px}
+.st-why .dp-top .bd-in{margin-top:0}
 /* end of the rooms band: what every room has, the comparison, then the local rate as a quiet line */
 .every{margin:44px 0 0}
 .every-h{display:flex; align-items:center; gap:14px; margin:0 0 16px; font:500 12px/1.2 var(--body); letter-spacing:.18em; text-transform:uppercase; color:var(--on-dark-soft)}
