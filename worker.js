@@ -37,6 +37,9 @@ const SHORT = {
   qr:    '?utm_source=qr&utm_medium=print&utm_campaign=hotel',
   promo: '?utm_source=instagram&utm_medium=manychat&utm_campaign=promo#rooms',
   ofk:   '?utm_source=instagram&utm_medium=social&utm_campaign=oceanfront_king#request-OFK',
+  tgig:  '?utm_source=instagram&utm_medium=social&utm_campaign=thanksgiving#thanksgiving',   // Thanksgiving 26 Nov 2026
+  tgtt:  '?utm_source=tiktok&utm_medium=social&utm_campaign=thanksgiving#thanksgiving',
+  tgfb:  '?utm_source=facebook&utm_medium=social&utm_campaign=thanksgiving#thanksgiving',
   team:  '?notrack',
 };
 
