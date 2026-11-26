@@ -1,0 +1,66 @@
+
+/* Stay hero: the pool by day, and lit up after 6 PM Jamaica time */
+#view-stay .sec-hero img.tod{object-position:50% 58%}
+/* Stay top: the three facts read as a line, not as cards; "Why book with us" is its own block */
+.dp-top .spa-facts.facts3{background:none; border-radius:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.dp-top .spa-facts.facts3 div{padding:16px 18px 16px 0}
+.dp-top .spa-facts.facts3 div + div{padding-left:18px}
+.dp-top .bd-in{margin:52px 0 0; background:none; padding:0; border-radius:0}
+.dp-top .bd-in .bd-h{display:flex; align-items:center; gap:14px; font-family:var(--body); font-size:12px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:4px}
+.dp-top .bd-in .bd-h::after{content:""; flex:1; height:1px; background:currentColor; opacity:.25}
+.dp-top .bd-in .bd-l li{background:var(--sand); border-radius:var(--r-card); padding:18px 16px}
+.dp-top .cta{margin-top:28px}
+/* Stay: the intro (lede and facts) is dark, under the hero; "Why book with us" is its own light block */
+.st-intro{background:var(--ocean-deep); color:var(--on-dark)}
+.st-intro .dp-top{padding-block:6px 44px}
+.st-intro .lede{color:var(--on-dark)}
+.st-intro .spa-facts.facts3{border-color:rgba(255,255,255,.18)}
+.st-intro .spa-facts.facts3 div + div{border-left-color:rgba(255,255,255,.18)}
+.st-intro .spa-facts b, .st-intro .spa-facts b span{color:#fff}
+.st-intro .spa-facts > div > span{color:var(--on-dark-soft)}
+.st-why .dp-top{padding-block:48px 52px}
+.st-why .dp-top .bd-in{margin-top:0}
+/* Stay hero: a tall photo with the title, the intro and the facts on it (25 Nov) */
+#view-stay .sec-hero img.tod{aspect-ratio:auto; height:min(88vh,900px); max-height:none}
+#view-stay .sec-hero .cap{background:linear-gradient(180deg,rgba(10,44,50,0) 0%,rgba(10,44,50,.55) 30%,rgba(10,44,50,.92) 70%)}
+#view-stay .sec-hero .cap .wrap{padding-block:120px 30px}
+.st-hero-x{display:grid; gap:16px; margin-top:6px}
+.st-hero-x .lede{margin:0; max-width:58ch; font-size:17px; line-height:1.6; color:rgba(255,255,255,.88)}
+.st-hero-x .spa-facts.facts3{background:none; border-radius:0; border-top:1px solid rgba(255,255,255,.25); max-width:640px}
+.st-hero-x .spa-facts.facts3 div{padding:14px 18px 0 0}
+.st-hero-x .spa-facts.facts3 div + div{padding-left:18px; border-left:1px solid rgba(255,255,255,.25)}
+.st-hero-x .spa-facts b, .st-hero-x .spa-facts b span{color:#fff}
+.st-hero-x .spa-facts > div > span{color:rgba(255,255,255,.75)}
+@media (max-width:719px){
+  #view-stay .sec-hero img.tod{height:min(92svh,820px)}
+  #view-stay .sec-hero .cap .wrap{padding-block:90px 24px}
+  .st-hero-x{gap:12px}
+  .st-hero-x .lede{font-size:15.5px}
+  .st-hero-x .spa-facts.facts3 div{padding:12px 8px 0 0}
+  .st-hero-x .spa-facts.facts3 div + div{padding-left:10px}
+}
+#view-stay .st-why .dp-top{padding-top:56px}
+/* end of the rooms band: what every room has, the comparison, then the local rate as a quiet line */
+.every{margin:44px 0 0}
+.every-h{display:flex; align-items:center; gap:14px; margin:0 0 16px; font:500 12px/1.2 var(--body); letter-spacing:.18em; text-transform:uppercase; color:var(--on-dark-soft)}
+.every-h::after{content:""; flex:1; height:1px; background:currentColor; opacity:.25}
+.every .checks{grid-template-columns:repeat(3,1fr); gap:14px 24px}
+.every .checks li{font-size:15px; color:var(--on-dark)}
+#rooms.band.dark .cmp-cta{margin-top:32px}
+#rooms.band.dark p.local-note{background:none; border:0; border-radius:0; padding:0; margin:22px 0 0; display:flex; gap:12px; align-items:baseline; color:var(--on-dark-soft)}
+#rooms.band.dark .local-note .ln-tag{flex:none; display:inline-block; padding:5px 11px; border-radius:999px; background:var(--seafoam); color:var(--ocean-deep); font-size:12.5px; font-weight:600; white-space:nowrap}
+/* the All-Inclusive Plan, in its own block */
+.plan-grid{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:start}
+.plan-intro h3{margin:0 0 12px; font-family:var(--display); font-weight:400; font-size:clamp(26px,3vw,32px); line-height:1.15; color:var(--ink)}
+.plan-intro p{margin:0 0 12px; font-size:15.5px; line-height:1.6; color:var(--ink-soft)}
+.plan-intro .plan-not{font-size:14px; color:var(--ink)}
+.plan-intro .link-btn{margin-top:6px}
+@media (max-width:719px){
+  .dp-top .spa-facts.facts3 div{padding:14px 10px 14px 0}
+  .dp-top .spa-facts.facts3 div + div{padding-left:10px}
+  .dp-top .bd-in{margin-top:40px}
+  .dp-top .bd-in .bd-l li{padding:14px 12px}
+  .every .checks{grid-template-columns:1fr; gap:10px}
+  #rooms.band.dark p.local-note{flex-direction:column; gap:8px}
+  .plan-grid{grid-template-columns:1fr; gap:18px}
+}
