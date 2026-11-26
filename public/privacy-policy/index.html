@@ -69,6 +69,16 @@
 }
 </style>
 <style>
+/* header: the horizontal logo from the brand book (circle on the left, FOOTEPRINTS / HOTEL · NEGRIL) */
+.tb2 .brand img.brand-h{height:34px; width:auto}
+@media (max-width:479px){ .tb2 .brand img.brand-h{height:27px} }
+@media (max-width:360px){ .tb2 .brand img.brand-h{height:25px} }
+/* the phone booking bar: a floating button over the page, not a dark strip */
+.bar{background:transparent!important; border-top:0!important; pointer-events:none; padding:0 16px calc(14px + env(safe-area-inset-bottom,0px))!important}
+.bar > a, .bar > button{pointer-events:auto; border-radius:999px!important; min-height:52px; box-shadow:0 12px 28px rgba(6,38,44,.30), 0 2px 6px rgba(6,38,44,.18)}
+.bar .a2, .bar.two-l button.a2{background:var(--ocean-deep)!important; color:#fff!important; border:0!important}
+</style>
+<style>
 .legal h2{font-size:22px;margin-top:10px}
 .legal h3{font:600 15px/1.3 var(--body);margin:2px 0 -14px;color:var(--seafoam-ink)}
 .legal p{margin:0;font-size:16px;line-height:1.6;max-width:66ch}
@@ -79,7 +89,7 @@
 </style>
 </head>
 <body>
-<section class="view dp" id="view-privacy" data-title="Privacy policy" data-shown><div class="topbar tb2"><div class="wrap"><button class="mb" type="button" aria-haspopup="dialog" aria-controls="fp-menu" data-umami-event="menu-open"><i class="ham" aria-hidden="true"><b></b><b></b><b></b></i><span class="mb-l">Menu</span></button><a class="brand" href="/" data-umami-event="topbar-logo"><img src="/img/logo-word-ink.png" alt="FootePrints" width="116" height="16"></a><a class="bk" href="/stay/#rooms" data-umami-event="topbar-book"><span>Book</span><span class="bk-x">&nbsp;a room</span></a></div></div><header class="sec-hero"><picture><source media="(min-width:720px)" srcset="/img/place-wide.webp"><img src="/img/beach.webp" alt="Loungers by the pool at FootePrints" decoding="async"></picture><div class="cap"><div class="wrap"><span class="eyebrow">Privacy</span><h1>Your information, <span class="h1b">handled with care.</span></h1></div></div></header><nav class="navstrip" aria-label="Sections"><div class="scroller"><a class="nav-i nav-home" href="/" data-umami-event="nav-home">Home</a><a class="nav-i" href="/stay/" data-umami-event="nav-stay">Stay</a><a class="nav-i" href="/day-pass/" data-umami-event="nav-daypass">Day Pass</a><a class="nav-i" href="/dining/" data-umami-event="nav-dining">Dining</a><a class="nav-i" href="/spa/" data-umami-event="nav-spa">Spa</a><a class="nav-i" href="/soundscape/" data-umami-event="nav-soundscape">Soundscape</a><a class="nav-i" href="/celebrations/" data-umami-event="nav-events">Celebrations</a><a class="nav-i" href="/retreats/" data-umami-event="nav-retreats">Retreats</a><a class="nav-i" href="/work-with-us/" data-umami-event="nav-work">Work with us</a></div></nav><div class="wrap sec-body dp-top legal">
+<section class="view dp" id="view-privacy" data-title="Privacy policy" data-shown><div class="topbar tb2"><div class="wrap"><button class="mb" type="button" aria-haspopup="dialog" aria-controls="fp-menu" data-umami-event="menu-open"><i class="ham" aria-hidden="true"><b></b><b></b><b></b></i><span class="mb-l">Menu</span></button><a class="brand" href="/" data-umami-event="topbar-logo"><img class="brand-h" src="/img/logo-horiz-ocean.png" alt="Negril FootePrints Hotel" width="152" height="34"></a><a class="bk" href="/stay/#rooms" data-umami-event="topbar-book"><span>Book</span><span class="bk-x">&nbsp;a room</span></a></div></div><header class="sec-hero"><picture><source media="(min-width:720px)" srcset="/img/place-wide.webp"><img src="/img/beach.webp" alt="Loungers by the pool at FootePrints" decoding="async"></picture><div class="cap"><div class="wrap"><span class="eyebrow">Privacy</span><h1>Your information, <span class="h1b">handled with care.</span></h1></div></div></header><nav class="navstrip" aria-label="Sections"><div class="scroller"><a class="nav-i nav-home" href="/" data-umami-event="nav-home">Home</a><a class="nav-i" href="/stay/" data-umami-event="nav-stay">Stay</a><a class="nav-i" href="/day-pass/" data-umami-event="nav-daypass">Day Pass</a><a class="nav-i" href="/dining/" data-umami-event="nav-dining">Dining</a><a class="nav-i" href="/spa/" data-umami-event="nav-spa">Spa</a><a class="nav-i" href="/soundscape/" data-umami-event="nav-soundscape">Soundscape</a><a class="nav-i" href="/celebrations/" data-umami-event="nav-events">Celebrations</a><a class="nav-i" href="/retreats/" data-umami-event="nav-retreats">Retreats</a><a class="nav-i" href="/work-with-us/" data-umami-event="nav-work">Work with us</a></div></nav><div class="wrap sec-body dp-top legal">
 <p class="lede">This page explains what information Negril FootePrints Hotel collects through this website, why we collect it, and the choices you have. We’ve kept it short and in plain words.</p>
 <p class="upd">Last updated: 21 November 2026</p>
 
